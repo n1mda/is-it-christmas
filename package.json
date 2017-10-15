@@ -1,6 +1,6 @@
 {
   "name": "is-it-christmas",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
@@ -47,7 +47,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy": "aws s3 sync build/ s3://xn--rdetjulafton-fcb.se/ --delete"
   },
   "jest": {
     "collectCoverageFrom": [
