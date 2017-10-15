@@ -20,8 +20,8 @@ jobs:
       - checkout
 
       - run:
-        name: Install awscli
-        command: pip install awscli --upgrade --user
+          name: Install awscli
+          command: pip install awscli --upgrade --user
 
       # Download and cache dependencies
       - restore_cache:
