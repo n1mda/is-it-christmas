@@ -19,10 +19,6 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Install awscli
-          command: sudo apt-get update && sudo apt-get install -y awscli
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -41,10 +37,10 @@ jobs:
       - run: yarn test
 
       - deploy:
-          name: Production
+          name: Deploy if a Production build
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn run deploy
+              sudo apt-get update && sudo apt-get install -y awscli && yarn run deploy
             else
-              echo "Not Deploying"
+              echo "Not on master, not deploying"
             fi
